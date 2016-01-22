@@ -10,12 +10,15 @@ permutations = (str) ->
 
   letter = str[0]
   lower_perms = permutations str[1..]
-  output = for perm in lower_perms
+  output = []
+
+  for perm in lower_perms
     for i in [0..perm.length]
-      perm[0..i] + letter + perm[i..]
+      output.push(perm[0...i] + letter + perm[i..])
 
+  output
 
-permutations "test"
+console.log(permutations "test")
 
 ###
 For reference, here is the original Javascript:
